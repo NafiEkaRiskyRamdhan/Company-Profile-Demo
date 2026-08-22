@@ -1,0 +1,2274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT Narana Samudera Abadi - Solusi Maritim Terpercaya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* ===== RESET & GLOBAL ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f4f8;
+            color: #0a1628;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+            padding: 10px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(145deg, #0a2a5a, #1a4a8a);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 900;
+            font-size: 18px;
+            box-shadow: 0 4px 16px rgba(26, 74, 138, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(-5deg) scale(1.05);
+        }
+
+        .logo-text h1 {
+            font-size: 15px;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .navbar.scrolled .logo-text h1 {
+            color: #0a1628;
+        }
+
+        .logo-text span {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        .navbar.scrolled .logo-text span {
+            color: #5a7a9a;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar.scrolled .nav-links a {
+            color: #1a2a4a;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2.5px;
+            background: #f5b842;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ffffff;
+        }
+
+        .navbar.scrolled .nav-links a:hover,
+        .navbar.scrolled .nav-links a.active {
+            color: #1a4a8a;
+        }
+
+        .nav-lang {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            margin-left: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px;
+            border-radius: 20px;
+        }
+
+        .navbar.scrolled .nav-lang {
+            background: rgba(26, 74, 138, 0.08);
+        }
+
+        .nav-lang button {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 700;
+            font-size: 12px;
+            cursor: pointer;
+            padding: 4px 12px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .navbar.scrolled .nav-lang button {
+            color: #5a7a9a;
+        }
+
+        .nav-lang button.active {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .navbar.scrolled .nav-lang button.active {
+            color: #1a4a8a;
+            background: rgba(26, 74, 138, 0.15);
+        }
+
+        .nav-lang button:hover {
+            color: #fff;
+        }
+
+        .navbar.scrolled .nav-lang button:hover {
+            color: #1a4a8a;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .navbar.scrolled .nav-toggle {
+            color: #0a1628;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(165deg, #071326 0%, #0f2a55 40%, #1a4a8a 100%);
+            overflow: hidden;
+            padding: 120px 0 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(245, 184, 66, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(26, 74, 138, 0.15) 0%, transparent 50%);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 35%;
+            background: linear-gradient(to top, #f0f4f8, transparent);
+        }
+
+        .hero-waves {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .hero-waves svg {
+            position: absolute;
+            bottom: 0;
+            width: 200%;
+            height: 100%;
+            animation: waveMove 8s linear infinite;
+        }
+
+        .hero-waves svg:nth-child(2) {
+            animation-duration: 12s;
+            opacity: 0.5;
+            animation-delay: -3s;
+        }
+
+        @keyframes waveMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            padding: 6px 18px 6px 14px;
+            border-radius: 50px;
+            color: #8ab8e0;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-badge i {
+            color: #f5b842;
+            font-size: 14px;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .hero h2 .highlight {
+            background: linear-gradient(135deg, #f5b842, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h2 .sub-highlight {
+            color: #8ab8e0;
+            -webkit-text-fill-color: #8ab8e0;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 520px;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f5b842, #e8940a);
+            color: #0a1628;
+            box-shadow: 0 4px 20px rgba(245, 184, 66, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 35px rgba(245, 184, 66, 0.5);
+        }
+
+        .btn-outline-light {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: float 4s ease-in-out infinite;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 20px;
+            transition: transform 0.6s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .hero-image .glow {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(245, 184, 66, 0.12), transparent 70%);
+            border-radius: 50%;
+            bottom: -20%;
+            right: -10%;
+            animation: pulseGlow 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .hero-image .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(7, 19, 38, 0.6), transparent);
+            border-radius: 0 0 20px 20px;
+            pointer-events: none;
+        }
+
+        .floating-ship {
+            position: absolute;
+            opacity: 0.05;
+            font-size: 60px;
+            color: #fff;
+            z-index: 1;
+        }
+
+        .floating-ship:nth-child(1) {
+            top: 12%;
+            left: 3%;
+            animation: floatShip 8s ease-in-out infinite;
+        }
+        .floating-ship:nth-child(2) {
+            bottom: 25%;
+            right: 5%;
+            animation: floatShip 10s ease-in-out infinite reverse;
+            font-size: 40px;
+        }
+        .floating-ship:nth-child(3) {
+            top: 45%;
+            left: 55%;
+            animation: floatShip 12s ease-in-out infinite 2s;
+            font-size: 30px;
+        }
+
+        .floating-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .dot {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 50%;
+            animation: floatDot 15s infinite linear;
+        }
+
+        .dot:nth-child(1) { width: 80px; height: 80px; top: 10%; left: 20%; animation-duration: 18s; }
+        .dot:nth-child(2) { width: 120px; height: 120px; bottom: 15%; right: 15%; animation-duration: 22s; }
+        .dot:nth-child(3) { width: 60px; height: 60px; top: 50%; left: 10%; animation-duration: 14s; }
+
+        @keyframes floatDot {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -20px) scale(1.1); }
+            50% { transform: translate(-20px, 30px) scale(0.9); }
+            75% { transform: translate(20px, 20px) scale(1.05); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-16px); }
+        }
+
+        @keyframes floatShip {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, -10px) rotate(2deg); }
+            75% { transform: translate(-10px, 10px) rotate(-2deg); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.3); opacity: 1; }
+        }
+
+        /* ===== STATS ===== */
+        .stats {
+            padding: 50px 0;
+            background: #fff;
+            border-bottom: 1px solid #eef2f6;
+            position: relative;
+            z-index: 5;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .stat-number {
+            font-size: 38px;
+            font-weight: 900;
+            color: #0a1628;
+            line-height: 1;
+        }
+
+        .stat-number .counter {
+            background: linear-gradient(145deg, #1a4a8a, #0a2a5a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #5a7a9a;
+            font-weight: 500;
+            margin-top: 6px;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(26, 74, 138, 0.08);
+            color: #1a4a8a;
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #0a1628;
+            line-height: 1.2;
+        }
+
+        .section-header p {
+            color: #5a7a9a;
+            font-size: 16px;
+            margin-top: 12px;
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            background: #f8fafc;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid #eef2f6;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1a4a8a, #f5b842);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 50px rgba(26, 74, 138, 0.1);
+            border-color: transparent;
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(145deg, #eef4fa, #dce6f0);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #1a4a8a;
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: linear-gradient(145deg, #1a4a8a, #0a2a5a);
+            color: #fff;
+            transform: scale(1.05) rotate(-3deg);
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0a1628;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: #5a7a9a;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .service-card .learn-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #1a4a8a;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            margin-top: 16px;
+            transition: gap 0.3s ease;
+        }
+
+        .service-card .learn-more:hover {
+            gap: 14px;
+        }
+
+        /* ===== ABOUT ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+            border-radius: 20px;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-image .badge-float {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: #fff;
+            padding: 20px 28px;
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+            text-align: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .badge-float .number {
+            font-size: 28px;
+            font-weight: 900;
+            color: #1a4a8a;
+        }
+
+        .badge-float .label {
+            font-size: 12px;
+            color: #5a7a9a;
+            font-weight: 500;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #0a1628;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .about-content p {
+            color: #5a7a9a;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            color: #0a1628;
+        }
+
+        .about-feature i {
+            color: #1a4a8a;
+            font-size: 18px;
+        }
+
+        /* ===== FLEET ===== */
+        .fleet {
+            background: #0a1628;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fleet::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(245, 184, 66, 0.05) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(26, 74, 138, 0.1) 0%, transparent 50%);
+        }
+
+        .fleet .section-tag {
+            background: rgba(255, 255, 255, 0.08);
+            color: #f5b842;
+        }
+
+        .fleet .section-header h2 {
+            color: #fff;
+        }
+
+        .fleet .section-header p {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .fleet-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 0;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .fleet-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(245, 184, 66, 0.3), transparent 50%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .fleet-card:hover::after {
+            opacity: 1;
+        }
+
+        .fleet-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(245, 184, 66, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .fleet-image-wrapper {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            background: #1a2333;
+        }
+
+        .fleet-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .fleet-card:hover .fleet-image-wrapper img {
+            transform: scale(1.1);
+        }
+
+        .fleet-image-wrapper .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to top, rgba(10, 22, 40, 0.8), transparent);
+        }
+
+        .fleet-card .fleet-content {
+            padding: 24px 28px 28px;
+            position: relative;
+        }
+
+        .fleet-card h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #fff;
+        }
+
+        .fleet-card p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .fleet-card .fleet-badge {
+            display: inline-block;
+            background: rgba(245, 184, 66, 0.15);
+            color: #f5b842;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 12px;
+        }
+
+        /* ===== STRUKTUR ORGANISASI ===== */
+        .org-section {
+            background: #f8fafc;
+        }
+
+        .org-tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .org-level {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .org-level.center {
+            justify-content: center;
+        }
+
+        .org-card {
+            background: #fff;
+            border: 1px solid #e8eff8;
+            padding: 18px 30px;
+            border-radius: 14px;
+            text-align: center;
+            min-width: 180px;
+            box-shadow: 0 4px 16px rgba(26, 74, 138, 0.06);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+        }
+
+        .org-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(26, 74, 138, 0.12);
+            border-color: #1a4a8a;
+        }
+
+        .org-card.highlight-card {
+            border: 2px solid #1a4a8a;
+            background: linear-gradient(145deg, #f0f6ff, #ffffff);
+        }
+
+        .org-card.highlight-card .org-role {
+            color: #f5b842;
+        }
+
+        .org-role {
+            display: block;
+            font-size: 11px;
+            color: #1a4a8a;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .org-card h4 {
+            font-size: 16px;
+            color: #0a1628;
+            font-weight: 700;
+        }
+
+        .org-line-vert {
+            width: 2px;
+            height: 30px;
+            background: linear-gradient(to bottom, #b0c4e8, #1a4a8a);
+            margin: 0 auto;
+        }
+
+        .org-branch {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            width: 100%;
+        }
+
+        .org-branch .org-card {
+            min-width: 160px;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid #eef2f6;
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .testimonial-card .stars {
+            color: #f5b842;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-card blockquote {
+            font-size: 15px;
+            color: #1a2a4a;
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-card .avatar {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(145deg, #1a4a8a, #0a2a5a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .testimonial-card .name {
+            font-weight: 700;
+            color: #0a1628;
+            font-size: 14px;
+        }
+
+        .testimonial-card .role {
+            font-size: 12px;
+            color: #5a7a9a;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            background: #0a1628;
+            border-radius: 24px;
+            padding: 40px;
+            color: #fff;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .contact-info p {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .contact-item .icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f5b842;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .contact-item .label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item .value {
+            font-weight: 600;
+        }
+
+        .contact-form {
+            background: #fff;
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid #eef2f6;
+        }
+
+        .contact-form h3 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #0a1628;
+            margin-bottom: 8px;
+        }
+
+        .contact-form .sub {
+            color: #5a7a9a;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 13px;
+            color: #0a1628;
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #eef2f6;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1a4a8a;
+            box-shadow: 0 0 0 4px rgba(26, 74, 138, 0.08);
+            background: #fff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #0a1628;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 50px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.7;
+            max-width: 320px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul a:hover {
+            color: #f5b842;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 13px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: #f5b842;
+            transform: translateY(-2px);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .services-grid,
+            .fleet-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(16px);
+                padding: 20px 24px;
+                flex-direction: column;
+                gap: 16px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                color: #1a2a4a !important;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-lang button {
+                color: #1a2a4a !important;
+            }
+
+            .nav-lang button.active {
+                background: rgba(26, 74, 138, 0.1) !important;
+                color: #1a4a8a !important;
+            }
+
+            .hero h2 {
+                font-size: 36px;
+            }
+
+            .about-image img {
+                height: 250px;
+            }
+
+            .hero-image {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .org-branch {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .org-level {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .services-grid,
+            .fleet-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
+
+            .hero-image .glow {
+                width: 150px;
+                height: 150px;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 24px;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .fleet-image-wrapper {
+                height: 180px;
+            }
+
+            .about-image img {
+                height: 200px;
+            }
+
+            .about-image .badge-float {
+                bottom: -10px;
+                right: -10px;
+                padding: 12px 18px;
+            }
+
+            .badge-float .number {
+                font-size: 20px;
+            }
+
+            .org-card {
+                min-width: 140px;
+                padding: 14px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">NSA</div>
+                <div class="logo-text">
+                    <h1 id="brandName">PT NARANA SAMUDERA ABADI</h1>
+                    <span id="brandTag">Delivering Reliable Maritime Solutions</span>
+                </div>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active" data-key="nav_home">Home</a></li>
+                <li><a href="#about" data-key="nav_about">Tentang Kami</a></li>
+                <li><a href="#services" data-key="nav_services">Layanan</a></li>
+                <li><a href="#fleet" data-key="nav_fleet">Armada</a></li>
+                <li><a href="#organization" data-key="nav_org">Struktur</a></li>
+                <li><a href="#testimonials" data-key="nav_testimonials">Testimoni</a></li>
+                <li><a href="#contact" data-key="nav_contact">Kontak</a></li>
+                <li>
+                    <div class="nav-lang">
+                        <button class="lang-btn active" onclick="switchLang('id')">ID</button>
+                        <button class="lang-btn" onclick="switchLang('en')">EN</button>
+                    </div>
+                </li>
+            </ul>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO / HOME ===== -->
+    <section class="hero" id="home">
+        <div class="floating-ship"><i class="fas fa-ship"></i></div>
+        <div class="floating-ship"><i class="fas fa-anchor"></i></div>
+        <div class="floating-ship"><i class="fas fa-sailboat"></i></div>
+
+        <div class="floating-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <div class="hero-waves">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,60 C300,120 600,0 900,60 C1050,90 1150,70 1200,60 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.04)"/>
+            </svg>
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,60 C300,20 600,100 900,60 C1050,30 1150,50 1200,60 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.02)"/>
+            </svg>
+        </div>
+
+        <div class="container">
+            <div class="hero-text">
+                <span class="hero-badge"><i class="fas fa-rocket"></i> <span data-key="hero_badge">Solusi Maritim Terpercaya</span></span>
+                <div class="hero-subtitle" data-key="hero_subtitle">PT Narana Samudera Abadi</div>
+                <h2><span data-key="hero_title1">Melayar Bersama,</span><br><span class="highlight" data-key="hero_title2">Menghubungkan</span> <span class="sub-highlight" data-key="hero_title3">Nusantara</span></h2>
+                <p data-key="hero_desc">PT Narana Samudera Abadi menyediakan layanan pelayaran tugboat, tongkang, dan logistik maritim dengan armada modern dan tim profesional untuk mendukung kelancaran bisnis Anda.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary"><span data-key="hero_btn1">Jelajahi Layanan</span> <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn btn-outline-light"><span data-key="hero_btn2">Hubungi Kami</span></a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="https://mgmaritim.com/wp-content/uploads/2023/05/3.jpeg" alt="Kapal Laut - PT Narana Samudera Abadi">
+                <div class="image-overlay"></div>
+                <div class="glow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number"><span class="counter">12</span>+</div>
+                    <div class="stat-label" data-key="stat1">Armada Kapal</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><span class="counter">50</span>+</div>
+                    <div class="stat-label" data-key="stat2">Proyek Selesai</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><span class="counter">25</span>+</div>
+                    <div class="stat-label" data-key="stat3">Klien Puas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><span class="counter">7</span></div>
+                    <div class="stat-label" data-key="stat4">Tahun Pengalaman</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT / TENTANG KAMI ===== -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://widya.ai/wp-content/uploads/2024/10/Jenis-Kapal-Kargo-Prinsip-Kerja-dan-Fungsinya.jpg" alt="Kapal Kargo - PT Narana Samudera Abadi">
+                    <div class="badge-float">
+                        <div class="number">100%</div>
+                        <div class="label" data-key="badge_label">Komitmen Tepat Waktu</div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="section-tag"><i class="fas fa-ship"></i> <span data-key="about_tag">Tentang Kami</span></span>
+                    <h2 data-key="about_title">Mitra Logistik Maritim Terpercaya</h2>
+                    <p data-key="about_desc1">PT Narana Samudera Abadi adalah perusahaan logistik maritim profesional yang berdiri pada 23 Februari 2026 di Jakarta, Indonesia. Kami hadir untuk memberikan solusi pengiriman dan logistik kelautan yang handal, efisien, dan terpercaya.</p>
+                    <p data-key="about_desc2">Dengan tim berpengalaman dan armada modern, kami berkomitmen menghadirkan layanan terbaik dalam setiap operasional maritim yang kami jalankan.</p>
+                    <div class="about-features">
+                        <div class="about-feature"><i class="fas fa-check-circle"></i> <span data-key="about_f1">Berpengalaman & Profesional</span></div>
+                        <div class="about-feature"><i class="fas fa-check-circle"></i> <span data-key="about_f2">Armada Modern & Handal</span></div>
+                        <div class="about-feature"><i class="fas fa-check-circle"></i> <span data-key="about_f3">Layanan 24/7</span></div>
+                        <div class="about-feature"><i class="fas fa-check-circle"></i> <span data-key="about_f4">Jaringan Luas Nusantara</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-anchor"></i> <span data-key="services_tag">Layanan Kami</span></span>
+                <h2 data-key="services_title">Layanan Kapal yang Efisien untuk Pengiriman Laut</h2>
+                <p data-key="services_desc">Kami menyediakan berbagai layanan maritim profesional untuk memenuhi kebutuhan logistik Anda.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-handshake"></i></div>
+                    <h3 data-key="svc1_title">Agen Handal</h3>
+                    <p data-key="svc1_desc">Agen yang ramah dan bisa bekerja sama untuk solusi pengiriman anda.</p>
+                    <a href="#" class="learn-more"><span data-key="svc_more">Selengkapnya</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-bolt"></i></div>
+                    <h3 data-key="svc2_title">Respon Cepat</h3>
+                    <p data-key="svc2_desc">Penawaran anda akan kami respon dengan efektif dan secepat mungkin.</p>
+                    <a href="#" class="learn-more"><span data-key="svc_more">Selengkapnya</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-clock"></i></div>
+                    <h3 data-key="svc3_title">Layanan 24 Jam</h3>
+                    <p data-key="svc3_desc">Asisten kami akan selalu siap membantu kapanpun Anda membutuhkannya.</p>
+                    <a href="#" class="learn-more"><span data-key="svc_more">Selengkapnya</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-ship"></i></div>
+                    <h3 data-key="svc4_title">Sewa Kapal</h3>
+                    <p data-key="svc4_desc">Penyewaan tugboat dan tongkang dengan armada modern dan terawat.</p>
+                    <a href="#" class="learn-more"><span data-key="svc_more">Selengkapnya</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-boxes"></i></div>
+                    <h3 data-key="svc5_title">Logistik Kargo</h3>
+                    <p data-key="svc5_desc">Pengiriman kargo dan muatan curah antar pulau dengan efisiensi tinggi.</p>
+                    <a href="#" class="learn-more"><span data-key="svc_more">Selengkapnya</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-warehouse"></i></div>
+                    <h3 data-key="svc6_title">Port Services</h3>
+                    <p data-key="svc6_desc">Layanan kepelabuhanan profesional meliputi bongkar muat dan dokumentasi.</p>
+                    <a href="#" class="learn-more"><span data-key="svc_more">Selengkapnya</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FLEET / ARMADA ===== -->
+    <section class="section fleet" id="fleet">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-ship"></i> <span data-key="fleet_tag">Armada Kami</span></span>
+                <h2 data-key="fleet_title">Armada Modern untuk Setiap Kebutuhan</h2>
+                <p data-key="fleet_desc">Didukung armada berkualitas tinggi yang siap mengantarkan kebutuhan logistik Anda.</p>
+            </div>
+
+            <div class="fleet-grid">
+                <div class="fleet-card">
+                    <div class="fleet-image-wrapper">
+                        <img src="https://pgnlng.co.id/wp-content/uploads/2024/02/dusan-veverkolog-oMLAWYXqnGs-unsplash-1024x685.jpg" alt="Tugboat - Kapal Tunda">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="fleet-content">
+                        <h4 data-key="fleet_tug_title">Tugboat</h4>
+                        <p data-key="fleet_tug_desc">Kapal tunda bertenaga tinggi untuk operasi penarik dan manuver pelabuhan.</p>
+                        <span class="fleet-badge" data-key="fleet_badge">Tersedia</span>
+                    </div>
+                </div>
+
+                <div class="fleet-card">
+                    <div class="fleet-image-wrapper">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ36WPNMSQBhF-Uby3p1TijvEUiaqFBfyawYO0Js5yn0lyPXTgQZPRDKnn&s=10" alt="Tongkang - Kapal Muatan Curah">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="fleet-content">
+                        <h4 data-key="fleet_barge_title">Tongkang</h4>
+                        <p data-key="fleet_barge_desc">Kapal pengangkut muatan curah dan kargo dengan kapasitas besar.</p>
+                        <span class="fleet-badge" data-key="fleet_badge">Tersedia</span>
+                    </div>
+                </div>
+
+                <div class="fleet-card">
+                    <div class="fleet-image-wrapper">
+                        <img src="https://antaralogistic.com/wp-content/uploads/2022/03/11.-kapal-kargo-kenapa-delay.jpg" alt="Kapal Kargo - Kapal Pengiriman Antar Pulau">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="fleet-content">
+                        <h4 data-key="fleet_cargo_title">Kapal Kargo</h4>
+                        <p data-key="fleet_cargo_desc">Kapal kargo modern untuk pengiriman antar pulau dengan jadwal teratur.</p>
+                        <span class="fleet-badge" data-key="fleet_badge">Tersedia</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STRUKTUR ORGANISASI ===== -->
+    <section class="section org-section" id="organization">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-sitemap"></i> <span data-key="org_tag">Struktur Organisasi</span></span>
+                <h2 data-key="org_title">PT Narana Samudera Abadi</h2>
+                <p data-key="org_desc">Delivering Reliable Maritime Solutions</p>
+            </div>
+
+            <div class="org-tree">
+                <!-- Komisaris Utama -->
+                <div class="org-level center">
+                    <div class="org-card highlight-card">
+                        <span class="org-role" data-key="org_comm_main">Komisaris Utama</span>
+                        <h4>Imam Rusnanda</h4>
+                    </div>
+                </div>
+                <div class="org-line-vert"></div>
+
+                <!-- Komisaris -->
+                <div class="org-level center">
+                    <div class="org-card">
+                        <span class="org-role" data-key="org_comm">Komisaris</span>
+                        <h4>Misbahudin</h4>
+                    </div>
+                </div>
+                <div class="org-line-vert"></div>
+
+                <!-- Direktur Utama -->
+                <div class="org-level center">
+                    <div class="org-card highlight-card">
+                        <span class="org-role" data-key="org_dir_utama">Direktur Utama</span>
+                        <h4>David Irwan</h4>
+                    </div>
+                </div>
+                <div class="org-line-vert"></div>
+
+                <!-- Wakil Direktur -->
+                <div class="org-level center">
+                    <div class="org-card">
+                        <span class="org-role" data-key="org_wakil_dir">Wakil Direktur</span>
+                        <h4>Nanang Rusmana</h4>
+                    </div>
+                </div>
+                <div class="org-line-vert"></div>
+
+                <!-- Direktur Operasional -->
+                <div class="org-level center">
+                    <div class="org-card highlight-card">
+                        <span class="org-role" data-key="org_dir_ops">Direktur Operasional</span>
+                        <h4>Fajar Wicaksono</h4>
+                    </div>
+                </div>
+                <div class="org-line-vert"></div>
+
+                <!-- Manager -->
+                <div class="org-level">
+                    <div class="org-branch">
+                        <div class="org-card">
+                            <span class="org-role" data-key="org_mgr_ops">Manager Operasional</span>
+                            <h4>Janjang</h4>
+                        </div>
+                        <div class="org-card">
+                            <span class="org-role" data-key="org_mgr_keu">Manager Keuangan</span>
+                            <h4>Nurlia Sekar</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="org-line-vert"></div>
+
+                <!-- Administrasi -->
+                <div class="org-level center">
+                    <div class="org-card">
+                        <span class="org-role" data-key="org_admin">Administrasi</span>
+                        <h4>Siti Fatimah</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-star"></i> <span data-key="testi_tag">Testimoni</span></span>
+                <h2 data-key="testi_title">Apa Kata Klien Kami</h2>
+                <p data-key="testi_desc">Kepercayaan klien adalah bukti komitmen kami dalam memberikan layanan terbaik.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote data-key="testi1_quote">"Pelayanan sangat profesional dan tepat waktu. Armada kapal yang digunakan sangat handal."</blockquote>
+                    <div class="author">
+                        <div class="avatar">AD</div>
+                        <div>
+                            <div class="name">Andi Darmawan</div>
+                            <div class="role" data-key="testi1_role">Direktur Logistik, PT Bumi Resources</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote data-key="testi2_quote">"Respons cepat dan solusi yang ditawarkan sangat sesuai dengan kebutuhan kami."</blockquote>
+                    <div class="author">
+                        <div class="avatar">SR</div>
+                        <div>
+                            <div class="name">Siti Rahma</div>
+                            <div class="role" data-key="testi2_role">Manager Supply Chain, PT Indofood</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote data-key="testi3_quote">"Tim yang berdedikasi dan komunikasi yang baik selama proses pengiriman berlangsung."</blockquote>
+                    <div class="author">
+                        <div class="avatar">BP</div>
+                        <div>
+                            <div class="name">Budi Prasetyo</div>
+                            <div class="role" data-key="testi3_role">CEO, PT Sentosa Jaya</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section" id="contact" style="background:#f8fafc;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-envelope"></i> <span data-key="contact_tag">Hubungi Kami</span></span>
+                <h2 data-key="contact_title">Hubungi Kami Sekarang</h2>
+                <p data-key="contact_desc">Tim kami siap membantu Anda dengan solusi logistik maritim terbaik.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>PT Narana Samudera Abadi</h3>
+                    <p data-key="contact_sub">Kantor pusat kami di Jakarta siap melayani Anda.</p>
+
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-location-dot"></i></div>
+                        <div>
+                            <div class="label" data-key="contact_addr_label">Alamat</div>
+                            <div class="value">Wisma Nugra Santana<br>Jl. Jenderal Sudirman Kav. 7–8<br>Jakarta 10220</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <div class="label" data-key="contact_phone_label">Telepon</div>
+                            <div class="value">+62 21 1234 5678</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <div class="label" data-key="contact_email_label">Email</div>
+                            <div class="value">naranasamuderaabadi@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fab fa-whatsapp"></i></div>
+                        <div>
+                            <div class="label" data-key="contact_wa_label">WhatsApp</div>
+                            <div class="value">+62 812-7836-2344</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3 data-key="form_title">Kirim Pesan</h3>
+                    <p class="sub" data-key="form_sub">Isi formulir di bawah dan tim kami akan segera merespon.</p>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name" data-key="form_name">Nama Lengkap *</label>
+                            <input type="text" id="name" placeholder="Masukkan nama Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-key="form_email">Alamat Email *</label>
+                            <input type="email" id="email" placeholder="email@domain.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" data-key="form_subject">Subjek</label>
+                            <input type="text" id="subject" placeholder="Contoh: Sewa Kapal Tugboat">
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-key="form_message">Pesan *</label>
+                            <textarea id="message" placeholder="Tuliskan pesan atau kebutuhan logistik Anda..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+                            <span data-key="form_btn">Kirim Pesan</span> <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>PT NARANA SAMUDERA ABADI</h3>
+                    <p data-key="footer_desc">Delivering Reliable Maritime Solutions. Mitra terpercaya untuk kebutuhan logistik maritim di seluruh nusantara.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 data-key="footer_col1_title">Tentang</h4>
+                    <ul>
+                        <li><a href="#about" data-key="footer_col1_1">Profil Perusahaan</a></li>
+                        <li><a href="#services" data-key="footer_col1_2">Layanan</a></li>
+                        <li><a href="#fleet" data-key="footer_col1_3">Armada</a></li>
+                        <li><a href="#organization" data-key="footer_col1_4">Struktur</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-key="footer_col2_title">Layanan</h4>
+                    <ul>
+                        <li><a href="#" data-key="footer_col2_1">Sewa Tugboat</a></li>
+                        <li><a href="#" data-key="footer_col2_2">Sewa Tongkang</a></li>
+                        <li><a href="#" data-key="footer_col2_3">Logistik Kargo</a></li>
+                        <li><a href="#" data-key="footer_col2_4">Port Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-key="footer_col3_title">Kontak</h4>
+                    <ul>
+                        <li><a href="#contact" data-key="footer_col3_1">Hubungi Kami</a></li>
+                        <li><a href="mailto:naranasamuderaabadi@gmail.com">Email</a></li>
+                        <li><a href="tel:+621212345678">+62 21 1234 5678</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 PT Narana Samudera Abadi. All Rights Reserved.</span>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== TRANSLATIONS =====
+        const translations = {
+            id: {
+                // Navbar
+                nav_home: "Home",
+                nav_about: "Tentang Kami",
+                nav_services: "Layanan",
+                nav_fleet: "Armada",
+                nav_org: "Struktur",
+                nav_testimonials: "Testimoni",
+                nav_contact: "Kontak",
+
+                // Hero
+                hero_badge: "Solusi Maritim Terpercaya",
+                hero_subtitle: "PT Narana Samudera Abadi",
+                hero_title1: "Melayar Bersama,",
+                hero_title2: "Menghubungkan",
+                hero_title3: "Nusantara",
+                hero_desc: "PT Narana Samudera Abadi menyediakan layanan pelayaran tugboat, tongkang, dan logistik maritim dengan armada modern dan tim profesional untuk mendukung kelancaran bisnis Anda.",
+                hero_btn1: "Jelajahi Layanan",
+                hero_btn2: "Hubungi Kami",
+
+                // Stats
+                stat1: "Armada Kapal",
+                stat2: "Proyek Selesai",
+                stat3: "Klien Puas",
+                stat4: "Tahun Pengalaman",
+
+                // About
+                about_tag: "Tentang Kami",
+                about_title: "Mitra Logistik Maritim Terpercaya",
+                about_desc1: "PT Narana Samudera Abadi adalah perusahaan logistik maritim profesional yang berdiri pada 23 Februari 2026 di Jakarta, Indonesia. Kami hadir untuk memberikan solusi pengiriman dan logistik kelautan yang handal, efisien, dan terpercaya.",
+                about_desc2: "Dengan tim berpengalaman dan armada modern, kami berkomitmen menghadirkan layanan terbaik dalam setiap operasional maritim yang kami jalankan.",
+                about_f1: "Berpengalaman & Profesional",
+                about_f2: "Armada Modern & Handal",
+                about_f3: "Layanan 24/7",
+                about_f4: "Jaringan Luas Nusantara",
+                badge_label: "Komitmen Tepat Waktu",
+
+                // Services
+                services_tag: "Layanan Kami",
+                services_title: "Layanan Kapal yang Efisien untuk Pengiriman Laut",
+                services_desc: "Kami menyediakan berbagai layanan maritim profesional untuk memenuhi kebutuhan logistik Anda.",
+                svc1_title: "Agen Handal",
+                svc1_desc: "Agen yang ramah dan bisa bekerja sama untuk solusi pengiriman anda.",
+                svc2_title: "Respon Cepat",
+                svc2_desc: "Penawaran anda akan kami respon dengan efektif dan secepat mungkin.",
+                svc3_title: "Layanan 24 Jam",
+                svc3_desc: "Asisten kami akan selalu siap membantu kapanpun Anda membutuhkannya.",
+                svc4_title: "Sewa Kapal",
+                svc4_desc: "Penyewaan tugboat dan tongkang dengan armada modern dan terawat.",
+                svc5_title: "Logistik Kargo",
+                svc5_desc: "Pengiriman kargo dan muatan curah antar pulau dengan efisiensi tinggi.",
+                svc6_title: "Port Services",
+                svc6_desc: "Layanan kepelabuhanan profesional meliputi bongkar muat dan dokumentasi.",
+                svc_more: "Selengkapnya",
+
+                // Fleet
+                fleet_tag: "Armada Kami",
+                fleet_title: "Armada Modern untuk Setiap Kebutuhan",
+                fleet_desc: "Didukung armada berkualitas tinggi yang siap mengantarkan kebutuhan logistik Anda.",
+                fleet_tug_title: "Tugboat",
+                fleet_tug_desc: "Kapal tunda bertenaga tinggi untuk operasi penarik dan manuver pelabuhan.",
+                fleet_barge_title: "Tongkang",
+                fleet_barge_desc: "Kapal pengangkut muatan curah dan kargo dengan kapasitas besar.",
+                fleet_cargo_title: "Kapal Kargo",
+                fleet_cargo_desc: "Kapal kargo modern untuk pengiriman antar pulau dengan jadwal teratur.",
+                fleet_badge: "Tersedia",
+
+                // Organization
+                org_tag: "Struktur Organisasi",
+                org_title: "PT Narana Samudera Abadi",
+                org_desc: "Delivering Reliable Maritime Solutions",
+                org_comm_main: "Komisaris Utama",
+                org_comm: "Komisaris",
+                org_dir_utama: "Direktur Utama",
+                org_wakil_dir: "Wakil Direktur",
+                org_dir_ops: "Direktur Operasional",
+                org_mgr_ops: "Manager Operasional",
+                org_mgr_keu: "Manager Keuangan",
+                org_admin: "Administrasi",
+
+                // Testimonials
+                testi_tag: "Testimoni",
+                testi_title: "Apa Kata Klien Kami",
+                testi_desc: "Kepercayaan klien adalah bukti komitmen kami dalam memberikan layanan terbaik.",
+                testi1_quote: '"Pelayanan sangat profesional dan tepat waktu. Armada kapal yang digunakan sangat handal."',
+                testi1_role: "Direktur Logistik, PT Bumi Resources",
+                testi2_quote: '"Respons cepat dan solusi yang ditawarkan sangat sesuai dengan kebutuhan kami."',
+                testi2_role: "Manager Supply Chain, PT Indofood",
+                testi3_quote: '"Tim yang berdedikasi dan komunikasi yang baik selama proses pengiriman berlangsung."',
+                testi3_role: "CEO, PT Sentosa Jaya",
+
+                // Contact
+                contact_tag: "Hubungi Kami",
+                contact_title: "Hubungi Kami Sekarang",
+                contact_desc: "Tim kami siap membantu Anda dengan solusi logistik maritim terbaik.",
+                contact_sub: "Kantor pusat kami di Jakarta siap melayani Anda.",
+                contact_addr_label: "Alamat",
+                contact_phone_label: "Telepon",
+                contact_email_label: "Email",
+                contact_wa_label: "WhatsApp",
+                form_title: "Kirim Pesan",
+                form_sub: "Isi formulir di bawah dan tim kami akan segera merespon.",
+                form_name: "Nama Lengkap *",
+                form_email: "Alamat Email *",
+                form_subject: "Subjek",
+                form_message: "Pesan *",
+                form_btn: "Kirim Pesan",
+
+                // Footer
+                footer_desc: "Delivering Reliable Maritime Solutions. Mitra terpercaya untuk kebutuhan logistik maritim di seluruh nusantara.",
+                footer_col1_title: "Tentang",
+                footer_col1_1: "Profil Perusahaan",
+                footer_col1_2: "Layanan",
+                footer_col1_3: "Armada",
+                footer_col1_4: "Struktur",
+                footer_col2_title: "Layanan",
+                footer_col2_1: "Sewa Tugboat",
+                footer_col2_2: "Sewa Tongkang",
+                footer_col2_3: "Logistik Kargo",
+                footer_col2_4: "Port Services",
+                footer_col3_title: "Kontak",
+                footer_col3_1: "Hubungi Kami",
+                brand_name: "PT NARANA SAMUDERA ABADI",
+                brand_tag: "Delivering Reliable Maritime Solutions"
+            },
+            en: {
+                // Navbar
+                nav_home: "Home",
+                nav_about: "About Us",
+                nav_services: "Services",
+                nav_fleet: "Fleet",
+                nav_org: "Structure",
+                nav_testimonials: "Testimonials",
+                nav_contact: "Contact",
+
+                // Hero
+                hero_badge: "Trusted Maritime Solutions",
+                hero_subtitle: "PT Narana Samudera Abadi",
+                hero_title1: "Sailing Together,",
+                hero_title2: "Connecting",
+                hero_title3: "the Archipelago",
+                hero_desc: "PT Narana Samudera Abadi provides tugboat, barge, and maritime logistics services with modern fleet and professional team to support your business operations.",
+                hero_btn1: "Explore Services",
+                hero_btn2: "Contact Us",
+
+                // Stats
+                stat1: "Fleet Vessels",
+                stat2: "Projects Done",
+                stat3: "Satisfied Clients",
+                stat4: "Years Experience",
+
+                // About
+                about_tag: "About Us",
+                about_title: "Trusted Maritime Logistics Partner",
+                about_desc1: "PT Narana Samudera Abadi is a professional maritime logistics company established on February 23, 2026, in Jakarta, Indonesia. We are here to provide reliable, efficient, and trustworthy shipping and marine logistics solutions.",
+                about_desc2: "With an experienced team and a modern fleet, we are committed to delivering the best service in every maritime operation we undertake.",
+                about_f1: "Experienced & Professional",
+                about_f2: "Modern & Reliable Fleet",
+                about_f3: "24/7 Service",
+                about_f4: "Extensive Archipelago Network",
+                badge_label: "On-Time Commitment",
+
+                // Services
+                services_tag: "Our Services",
+                services_title: "Efficient Vessel Services for Sea Freight",
+                services_desc: "We provide various professional maritime services to meet your logistics needs.",
+                svc1_title: "Reliable Agent",
+                svc1_desc: "Friendly agent who can collaborate for your shipping solutions.",
+                svc2_title: "Fast Response",
+                svc2_desc: "We will respond to your offers effectively and as quickly as possible.",
+                svc3_title: "24-Hour Service",
+                svc3_desc: "Our assistants will always be ready to help you whenever you need them.",
+                svc4_title: "Vessel Chartering",
+                svc4_desc: "Rental of tugboats and barges with a modern and well-maintained fleet.",
+                svc5_title: "Cargo Logistics",
+                svc5_desc: "Inter-island cargo and bulk freight delivery with high efficiency.",
+                svc6_title: "Port Services",
+                svc6_desc: "Professional port services including loading/unloading and documentation.",
+                svc_more: "Read More",
+
+                // Fleet
+                fleet_tag: "Our Fleet",
+                fleet_title: "Modern Fleet for Every Need",
+                fleet_desc: "Supported by a high-quality fleet ready to deliver your logistics needs.",
+                fleet_tug_title: "Tugboat",
+                fleet_tug_desc: "High-powered tugboat for towing operations and port maneuvering.",
+                fleet_barge_title: "Barge",
+                fleet_barge_desc: "Bulk carrier and cargo vessel with large capacity.",
+                fleet_cargo_title: "Cargo Ship",
+                fleet_cargo_desc: "Modern cargo ship for inter-island delivery with regular schedules.",
+                fleet_badge: "Available",
+
+                // Organization
+                org_tag: "Organization Structure",
+                org_title: "PT Narana Samudera Abadi",
+                org_desc: "Delivering Reliable Maritime Solutions",
+                org_comm_main: "Main Commissioner",
+                org_comm: "Commissioner",
+                org_dir_utama: "President Director",
+                org_wakil_dir: "Vice Director",
+                org_dir_ops: "Operations Director",
+                org_mgr_ops: "Operations Manager",
+                org_mgr_keu: "Finance Manager",
+                org_admin: "Administration",
+
+                // Testimonials
+                testi_tag: "Testimonials",
+                testi_title: "What Our Clients Say",
+                testi_desc: "Client trust is proof of our commitment to providing the best service.",
+                testi1_quote: '"Very professional service and on time. The vessels used are very reliable."',
+                testi1_role: "Logistics Director, PT Bumi Resources",
+                testi2_quote: '"Fast response and the solutions offered really fit our needs."',
+                testi2_role: "Supply Chain Manager, PT Indofood",
+                testi3_quote: '"Dedicated team and good communication during the delivery process."',
+                testi3_role: "CEO, PT Sentosa Jaya",
+
+                // Contact
+                contact_tag: "Contact Us",
+                contact_title: "Contact Us Now",
+                contact_desc: "Our team is ready to assist you with the best maritime logistics solutions.",
+                contact_sub: "Our head office in Jakarta is ready to serve you.",
+                contact_addr_label: "Address",
+                contact_phone_label: "Phone",
+                contact_email_label: "Email",
+                contact_wa_label: "WhatsApp",
+                form_title: "Send a Message",
+                form_sub: "Fill out the form below and our team will respond immediately.",
+                form_name: "Full Name *",
+                form_email: "Email Address *",
+                form_subject: "Subject",
+                form_message: "Message *",
+                form_btn: "Send Message",
+
+                // Footer
+                footer_desc: "Delivering Reliable Maritime Solutions. Your trusted partner for maritime logistics needs across the archipelago.",
+                footer_col1_title: "Company",
+                footer_col1_1: "Company Profile",
+                footer_col1_2: "Services",
+                footer_col1_3: "Fleet",
+                footer_col1_4: "Structure",
+                footer_col2_title: "Services",
+                footer_col2_1: "Tugboat Rental",
+                footer_col2_2: "Barge Rental",
+                footer_col2_3: "Cargo Logistics",
+                footer_col2_4: "Port Services",
+                footer_col3_title: "Contact",
+                footer_col3_1: "Contact Us",
+                brand_name: "PT NARANA SAMUDERA ABADI",
+                brand_tag: "Delivering Reliable Maritime Solutions"
+            }
+        };
+
+        let currentLang = 'id';
+
+        // ===== SWITCH LANGUAGE FUNCTION =====
+        function switchLang(lang) {
+            currentLang = lang;
+
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase() === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update all text elements with data-key attribute
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Update brand name and tag
+            const brandName = document.getElementById('brandName');
+            const brandTag = document.getElementById('brandTag');
+            if (brandName) brandName.textContent = translations[lang].brand_name;
+            if (brandTag) brandTag.textContent = translations[lang].brand_tag;
+        }
+
+        // ===== NAVBAR SCROLL EFFECT =====
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ===== MOBILE NAV TOGGLE =====
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            const icon = navToggle.querySelector('i');
+            if (navLinks.classList.contains('open')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        });
+
+        // Close mobile nav on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                const icon = navToggle.querySelector('i');
+                icon.className = 'fas fa-bars';
+            });
+        });
+
+        // ===== ACTIVE NAV LINK =====
+        const sections = document.querySelectorAll('section[id]');
+        const navItems = document.querySelectorAll('.nav-links a:not([href="#"])');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === '#' + current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // ===== COUNTER ANIMATION =====
+        const counters = document.querySelectorAll('.counter');
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.textContent);
+                    let current = 0;
+                    const increment = Math.ceil(target / 40);
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            counter.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = current;
+                        }
+                    }, 30);
+                    observer.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(counter => observer.observe(counter));
+
+        // ===== REVEAL ANIMATIONS =====
+        const revealElements = document.querySelectorAll('.service-card, .fleet-card, .testimonial-card, .stat-item, .org-card');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            revealObserver.observe(el);
+        });
+    </script>
+
+</body>
+</html>
